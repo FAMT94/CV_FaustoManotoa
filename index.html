@@ -12,8 +12,92 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+
+    <!-- script -->
+    <script lang="javascript" type="text/javascript">
+    
+        function hideEducation(){
+            var bodyScroll=document.documentElement;
+            var y= bodyScroll.scrollTop;
+
+            var photoProfile=document.getElementById("idPhotoProfile");
+            var experienceDiv=document.getElementById("experienceDiv")
+
+            document.getElementById ("demo").innerHTML ="Vertically: " + y + "px";
+
+            disp=document.documentElement.clientWidth;
+            document.getElementById("demoDispositivo").innerHTML="El dispositivo tiene"+disp+"px de ancho";
+
+
+            if(disp<500){
+                // Education
+                if(y<260*3){
+                    photoProfile.style.opacity=0.4;
+                }
+                else if(y<340*3){
+                    photoProfile.style.opacity=0.7;
+                }
+                else if(y<380*3){
+                photoProfile.style.opacity=1;
+                }
+                else{
+                    photoProfile.style.opacity=1;
+                }
+                // Expreince
+                if(y<260*5){
+                    experienceDiv.style.opacity=0.4;
+                }
+                else if(y<340*5){
+                    experienceDiv.style.opacity=0.7;
+                }
+                else if(y<380*5){
+                    experienceDiv.style.opacity=1;
+                }
+                else{
+                    experienceDiv.style.opacity=1;
+                }
+
+            }
+            else{
+                // Education
+                if(y<260){
+                    photoProfile.style.opacity=0.4
+                }
+                else if(y<340){
+                photoProfile.style.opacity=0.8;
+                }
+                else if(y<380){
+                    photoProfile.style.opacity=0.4;
+                }
+                else{
+                    photoProfile.style.opacity=1;
+                }
+                // Experience
+                if(y<260*5/3){
+                    experienceDiv.style.opacity=0.4
+                }
+                else if(y<340*5/3){
+                    experienceDiv.style.opacity=0.8;
+                }
+                else if(y<380*5/3){
+                    experienceDiv.style.opacity=0.4;
+                }
+                else{
+                    experienceDiv.style.opacity=1;
+                }
+
+            }
+        } 
+
+
+    </script>
+
     <title>CV FAMT | Fausto Manotoa - Business Analyst</title>
     <style type="text/css">
+        body{
+            background: #f5f5f534;  /* fallback for old browsers */
+
+        }
         
         .cvBlock{
             padding-top: 60px;
@@ -74,14 +158,17 @@
             background-color: rgba(245, 245, 245, 0.0); 
             border: none;
         }
-        
+        .achivementTitles td p{
+            padding-left: 10px;
+           
+        }
         
     </style>
 
   </head>
-  <body>
-    <div class="container cvBlock">
-        <div class="row">
+  <body onscroll="hideEducation()">
+    <div class="container-fluid cvBlock">
+        <div class="row" >
             <div class="col-sm">
                 <h5>Hola, soy</h5>
                 <h1  class="cvName">Fausto Manotoa</h1>
@@ -101,8 +188,8 @@
             </div>
             
 
-            <div class="col-sm">
-                <div class="text-center">
+            <div class="col-sm" >
+                <div class="text-center" >
                     <img src="Linkedin_Cancun_WB.png" width="250px" class="rounded" alt="Fausto Manotoa photo profile">
                 </div>
             </div>
@@ -117,7 +204,7 @@
         </div>
 
 
-        <div class="row itemsCV">
+        <div class="row itemsCV" >
             <div class="col">
                 <h3 class="sectionTiles">Sobre mi</h3>
                 Soy una persona introvertida, autodidacta, apasionada por la tecnología, finanzas y coches. Me gusta aprender
@@ -125,19 +212,20 @@
                 en un curso de Robótica industria que hice (1er año) con nociones básicas de C y Arduino. Posteriormente en un curso de FIJ 
                 en Bruselas conocí CSS,HTML, JavaScript y Python. Actualmente continúo aprendiendo de estos últimos programas mencionados junto
                 con R que me lo enseñaron en la UPM.
+
             </div>
         </div>
-        <div class="row itemsCV ">
+        <div class="row itemsCV" >
             <div class="col-lg">
                 <h3 class="sectionTiles">Educación</h3>
             </div>
         </div>
 
-        <div class="row divEducation">
+        <div class="row divEducation" id="idPhotoProfile">
             
             <div class="col-md">
                 <div>
-                    <img src="https://www.upm.es/themes/comun/logos/nuevo.png" alt="Logo UPM" height="50px" class="logoImg">
+                    <img src="http://www.upm.es/themes/comun/logos/institucional.png" alt="Logo UPM" height="50px" class="logoImg">
                 </div>
 
                 <h6>Universidad Politénica de Madrid</h6>
@@ -178,35 +266,36 @@
             </div>
         </div>
 
-        <div class="row itemsCV">
+        <div class="row itemsCV" id="experienceDiv">
             <div class="col-sm">
                 <img src="https://www.auto1-group.com/images/logo-auto1-group-v2.svg" alt="" height="40px" class="logoImg">
                 <h6>Business Analyst</h6>
-                <h6 class="titleName">Junio 2018 - Actualidad (1 año 11 meses)</h6>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vel eius distinctio, quidem, reiciendis perspiciatis repellat dolore, 
-                error velit rem accusamus! Qui beatae pariatur ipsam sunt. Nemo magnam minima placeat!
+                <h6 class="titleName">Junio 2018 - Actualidad (2 años 2 meses)</h6>
+                Empresa dedicada a la compra y venta de vehículos de ocasión. En la cual cuento con las funciones de creación, modificación y mantenimiento
+                de cuadros de mando así como el envío de reportes diarios, semanales y mensuales. Otra función es la de automatización de procesos de 
+                actualización de estos cuadros de mando en primera instancia a través de GAS (Google App Script) y actualmente se trabaja con Python.
             </div>
             <div class="col-sm">
                 <div class="unidadEditorialLogo">
-                    <img src="https://www.unidadeditorial.es/img/logo-unidadeditorial.svg" alt="" height="40px" class="logoImg">
+                    <img src="logo_unidadeditorial.svg" alt="" height="40px" class="logoImg">
                 </div>
                 
                 <h6>Becario en finanzas</h6>
                 <h6 class="titleName">Junio 2018 - Agosto 2018 (2 meses)</h6>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vel eius distinctio, quidem, reiciendis perspiciatis repellat dolore, 
-                error velit rem accusamus! Qui beatae pariatur ipsam sunt. Nemo magnam minima placeat!
+                Empresa dedicada a la prensa en papel y digital. Mis funciones en esta empresa fueron el seguimiento de distintos KPIs para los departamentos
+                de ventas, retención y atención al cliente. Así como la automatización de procesos manuales a través de VBA.
             </div>
             <div class="col-sm">
                 <img src="https://leasingsolutions.bnpparibas.es/wp-content/uploads/sites/20/cache/2016/03/logo/3821250256.png" class="logoImg"> 
                 <h6>Becario en contabilidad</h6>
                 <h6 class="titleName">Junio 2016 - Junio 2017 (1 año)</h6>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vel eius distinctio, quidem, reiciendis perspiciatis repellat dolore, 
-                error velit rem accusamus! Qui beatae pariatur ipsam sunt. Nemo magnam minima placeat!
+                Empresa dedicada al Leasing y Renting de equipos informáticos y maquinaria industrial. Mis funciones dentro del departamento de contabilidad 
+                fue la del registro de diversas facturas, así como la obtención del registro de la propiedad de los distintos bienes muebles y su contabilización.
             </div>
         </div>
 
         <div class="row itemsCV divHLP">
-            <div class="col-sm">
+            <div class="col-md">
                 <h3 class="sectionTiles">Habilidades</h3>
                 <table>
                     <tr>
@@ -226,34 +315,49 @@
                         <td></td>
                     </tr>
                 </table>
+
+
+                <h3 class="sectionTiles">Idiomas</h3>
+                <table>
+                    <tr>
+                        <td><img src="https://cdn.icon-icons.com/icons2/97/PNG/128/spain_flags_flag_17068.png" class="logoImg" height="30px"> </td>
+                        <td width=150px>Español</td>
+                        <td>Nativo</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.icon-icons.com/icons2/97/PNG/128/france_flags_flag_16999.png" class="logoImg" height="30px"> </td>
+                        <td>Francés</td>
+                        <td>B2-C1</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.icon-icons.com/icons2/97/PNG/128/united_kingdom_flags_flag_17079.png" class="logoImg" height="30px"> </td>
+                        <td>Inglés</td>
+                        <td>B1-B2</td>
+                    </tr>
+                    
+                </table>
             </div>
-            <div class="col-sm">
+            <div class="col-md">
                 <h3 class="sectionTiles">Logros</h3>
 
-                    
-                
-                    <div class="card-group">
-                        
-                        <div class="card">
-                            <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" target="_blank">
-                                <img class="card-img-top" src="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text"><small class="text-muted" >Curso completo de estadística descriptiva - RStudio y Python</small></p>
-                                </div>
-                            </a>
-                            
-                        </div>
-                        <div class="card">
-                            <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" target="_blank">
-                                <img class="card-img-top" src="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" alt="Card image cap">
-                                <div class="card-body ">
-                                    <p class="card-text"><small class="text-muted ">Curso completo de HTML, CSS y JavaScript</small></p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
+                    <table class="achivementTitles">
+                        <tr>   
+                            <td>
+                                <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" target="_blank">
+                                    <img style="max-width: 14rem;" class="card-img-top" src="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" alt="Card image cap">
+                                </a>
+                            </td>
+                            <td width="60%"><p><small class="text-muted" >Curso completo de estadística descriptiva - RStudio y Python</small></p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" target="_blank">
+                                    <img style="max-width: 14rem;" class="card-img-top" src="https://udemy-certificate.s3.amazonaws.com/image/UC-af5ed8c2-4d69-4caf-8df9-ad4e5dccfc16.jpg?v=1589457078000" alt="Card image cap">
+                                </a>
+                            </td>
+                            <td width="60%"><p><small class="text-muted" >Curso completo de HTML, CSS y JavaScript</small></p></td>
+                        </tr>
+                    </table>
 
                     <!-- <table>
                         <tr>
@@ -269,11 +373,11 @@
 
 
             </div>
-            <div class="col-sm">
+            <div class="col-md">
                 <h3 class="sectionTiles">Programas</h3>
                 <table>
                     <tr>
-                        <td><img src="https://konpa.github.io/devicon/devicon.git/icons/python/python-original.svg" alt="logo Python" height="40px" class="logoImg"></td>
+                        <td><img src="https://devicons.github.io/devicon/devicon.git/icons/python/python-original.svg" alt="logo Python" height="40px" class="logoImg"></td>
                         <td class="softwareBar">
                             <div class="progress">
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -296,7 +400,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td><img src="https://konpa.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="logo HTML" height="40px" class="logoImg"></td>
+                        <td><img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="logo HTML" height="40px" class="logoImg"></td>
                         <td class="softwareBar">
                             <div class="progress">
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -307,14 +411,14 @@
                         
                     </tr>
                     <tr>
-                        <td><img src="https://konpa.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="logo CSS" height="40px" class="logoImg"></td>
+                        <td><img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="logo CSS" height="40px" class="logoImg"></td>
                         <td class="softwareBar">
                             <div class="progress">
                                 <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </td>
                         <td class="iconsPrograms"></td>
-                        <td><img src="https://konpa.github.io/devicon/devicon.git/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="logoR" height="40px" class="logoImg"></td>
+                        <td><img src="https://devicons.github.io/devicon/devicon.git/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="logoBootstrap" height="40px" class="logoImg"></td>
                     </tr>
                     <tr>
                         <td>&nbsp<img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Badge_js-strict.svg" alt="logo JavaS cript" height="40px" class="logoImg"></td>
@@ -324,7 +428,7 @@
                             </div>
                         </td>
                         <td class="iconsPrograms"></td>
-                        <td><img src="https://konpa.github.io/devicon/devicon.git/icons/visualstudio/visualstudio-plain.svg" alt="logoR" height="40px" class="logoImg"></td>
+                        <td><img src="https://devicons.github.io/devicon/devicon.git/icons/visualstudio/visualstudio-plain.svg" alt="logoVisualStudio" height="40px" class="logoImg"></td>
                     </tr>
                 </table>
                 <br>
